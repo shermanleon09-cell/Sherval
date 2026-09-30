@@ -670,75 +670,390 @@ h1 {
 }
 
 /* ====== RESPONSIVO ====== */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
+
+/* Tablets - 1024px y menos */
+@media (max-width: 1024px) {
+    :root {
+        --texto-size: 0.95rem;
+        --titulo-size: 2rem;
+        --subtitulo-size: 1.3rem;
     }
 
-    .nav {
-        flex-wrap: wrap;
-        justify-content: center;
+    .header {
+        padding: 15px 25px;
     }
 
     .section {
-        padding: 40px 25px;
+        padding: 60px 50px;
+        margin: 40px 20px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Tablets pequeñas y móviles grandes - 768px y menos */
+@media (max-width: 768px) {
+    :root {
+        --texto-size: 0.9rem;
+        --titulo-size: 1.8rem;
+        --subtitulo-size: 1.2rem;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+
+    /* Header responsive */
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .title h2 {
+        font-size: 1.5rem;
+        margin: 5px 0;
+    }
+
+    .title h3 {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    /* Navegación responsive */
+    .nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .nav a {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    /* Selector de idioma */
+    .language {
+        width: 100%;
+    }
+
+    select#languageSelector {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Secciones responsive */
+    .section {
+        padding: 30px 20px;
+        margin: 30px 15px;
+        border-radius: 15px;
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
     }
 
-    .payment-channels img {
-        max-width: 120px;
+    h2, h3 {
+        font-size: 1.1rem;
     }
 
+    p, li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Valores responsive */
+    .value-item {
+        padding: 15px;
+        margin: 12px 0;
+    }
+
+    .value-item:hover {
+        transform: translateX(5px);
+    }
+
+    .value-item strong {
+        font-size: 1.1rem;
+    }
+
+    /* Colores corporativos responsive */
+    .color-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .color-info {
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .color-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .color-info p {
+        text-align: center;
+    }
+
+    .color-display {
+        width: 100%;
+        max-width: 180px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
+    .color-item:hover .color-display {
+        transform: scale(1.05);
+    }
+
+    /* Servicios responsive */
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+
+    /* Canales de pago responsive */
+    .payment-channels {
+        gap: 15px;
+    }
+
+    .payment-channels img,
+    #canales img {
+        max-width: 70px;
+        height: auto;
+    }
+
+    /* Contacto responsive */
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .contact-card {
         padding: 20px;
     }
-    
-    .service-grid {
-        grid-template-columns: 1fr;
+
+    .contact-card h3 {
+        font-size: 1.2rem;
     }
-    
-    .color-item {
-        flex-direction: column;
-        text-align: center;
+
+    .contact-card p {
+        font-size: 0.9rem;
     }
-    
-    .color-info {
-        padding-right: 0;
-        margin-bottom: 20px;
+
+    .contact-icon {
+        font-size: 3rem;
     }
-    
-    .color-display {
+
+    .contact-info {
+        padding: 20px;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+    }
+
+    /* Highlight box responsive */
+    .highlight-box {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    /* Historia responsive */
+    .historia-content p {
+        margin-bottom: 15px;
+    }
+
+    /* Footer responsive */
+    .footer {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .footer img {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 10px 5px !important;
+    }
+
+    /* Audio responsive */
+    audio {
         width: 100%;
-        max-width: 200px;
+        max-width: 100%;
+    }
+
+    /* Video responsive */
+    .video-container {
+        margin: 20px 0;
+    }
+
+    /* Formularios responsive */
+    form {
+        max-width: 100%;
+    }
+
+    input, select, button {
+        font-size: 0.9rem;
     }
 }
 
-/* Responsive para celulares */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
+/* Móviles pequeños - 480px y menos */
+@media (max-width: 480px) {
+    :root {
+        --texto-size: 0.85rem;
+        --titulo-size: 1.5rem;
+        --subtitulo-size: 1.1rem;
     }
 
-    nav {
-        flex-direction: column;
+    .header {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .title h2 {
+        font-size: 1.3rem;
+    }
+
+    .title h3 {
+        font-size: 0.9rem;
+    }
+
+    .nav a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
     }
 
     .section {
-        width: 90%;
-        margin: auto;
+        padding: 20px 15px;
+        margin: 20px 10px;
+        border-radius: 12px;
     }
 
-    img {
-        max-width: 100%;
-        height: auto;
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    p, li {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .value-item {
+        padding: 12px;
+        border-left-width: 3px;
+    }
+
+    .value-item strong {
+        font-size: 1rem;
+    }
+
+    .color-display {
+        max-width: 140px;
+        height: 100px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .service-card h3 {
+        font-size: 1.05rem;
+    }
+
+    #canales img {
+        max-width: 60px;
+        height: 60px;
+    }
+
+    .contact-icon {
+        font-size: 2.5rem;
+    }
+
+    .contact-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-card p,
+    .contact-info p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .footer {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    .footer img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .highlight-box {
+        padding: 15px;
+    }
+
+    select#languageSelector {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+/* Mejoras generales para touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .nav a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        min-height: 44px;
+    }
+
+    .service-card:hover,
+    .value-item:hover,
+    .color-item:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+
+    .service-card:active,
+    .value-item:active,
+    .color-item:active,
+    .contact-card:active {
+        transform: scale(0.98);
     }
 }
