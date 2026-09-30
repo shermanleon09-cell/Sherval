@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sherval - Traductor Offline Completo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        select#languageSelector {
+            padding: 6px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        option {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/Logo.PNG" alt="Logo">
+        </div>
+
+        <div class="title">
+            <h2 id="titleName" style="color: white;">Sherval</h2>
+            <h3 id="titleSub" style="color: white;">Innovación en Desarrollo de Software</h3>
+        </div>
+
+        <nav class="nav">
+            <a onclick="mostrarSeccion('vision')" id="navVision">Visión</a>
+            <a onclick="mostrarSeccion('mision')" id="navMision">Misión</a>
+            <a onclick="mostrarSeccion('valores')" id="navValores">Valores</a>
+            <a onclick="mostrarSeccion('historia')" id="navHistoria">Historia</a>
+            <a onclick="mostrarSeccion('colores')" id="navColores">Colores</a>
+            <a onclick="mostrarSeccion('servicios')" id="navServicios">Servicios</a>
+            <a onclick="mostrarSeccion('propuesta')" id="navPropuesta">Propuesta</a>
+            <a onclick="mostrarSeccion('canales')" id="navCanales">Canales de pago</a>
+            <a onclick="mostrarSeccion('contacto')" id="navContacto">Contáctanos</a>
+            <a onclick="mostrarSeccion('audio')" id="navAudio">Audio</a>
+        </nav>
+
+        <div class="language">
+            <select id="languageSelector">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="zh">🇨🇳 中文</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- SECCIONES -->
+    <main>
+        <section id="vision" class="section active">
+            <h1 id="visionTitle">✨ Visión</h1>
+            <div class="highlight-box">
+                <p id="visionText">
+                    Llegar a ser <strong>líderes en el desarrollo de software innovador</strong> en Colombia y la región, 
+                    siendo reconocidos por nuestra capacidad de anticiparnos a las necesidades del mercado y ofrecer 
+                    soluciones tecnológicas que transforman industrias.
+                </p>
+                <p id="visionText2">
+                    Aspiramos a convertirnos en el socio tecnológico preferido de empresas que buscan innovación, 
+                    calidad y compromiso, expandiendo nuestro alcance a nivel internacional y contribuyendo al 
+                    desarrollo tecnológico de la región.
+                </p>
+            </div>
+        </section>
+
+        <section id="mision" class="section">
+            <h1 id="misionTitle">🚀 Misión</h1>
+            <div class="highlight-box">
+                <p id="misionText">
+                    Desarrollar <strong>soluciones de software innovadoras y de alta calidad</strong> que impulsen el 
+                    crecimiento y la eficiencia de nuestros clientes, a través de la excelencia técnica, la colaboración 
+                    estrecha y un compromiso inquebrantable con la satisfacción de nuestros usuarios.
+                </p>
+                <p id="misionText2">
+                    Nos esforzamos por comprender las necesidades únicas de cada cliente y transformarlas en productos 
+                    tecnológicos robustos, escalables y fáciles de usar que generen valor real para sus negocios.
+                </p>
+            </div>
+        </section>
+
+        <section id="valores" class="section">
+            <h1 id="valoresTitle">💎 Valores Corporativos</h1>
+            <p id="valoresIntro">Nuestros valores son los pilares que guían cada decisión, proyecto y relación con nuestros clientes:</p>
+            
+            <div class="value-item">
+                <strong id="valor1Title">1. Respeto</strong>
+                <p id="valor1Desc">Tendremos en cuenta lo que quiera el cliente y lo orientaremos de la mejor manera posible. Valoramos las ideas y necesidades de cada persona.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor2Title">2. Responsabilidad</strong>
+                <p id="valor2Desc">Entregaremos lo prometido a tiempo y nos comprometeremos profundamente con el éxito de cada proyecto. Nuestros clientes pueden confiar en nosotros.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor3Title">3. Honestidad</strong>
+                <p id="valor3Desc">Los trabajos llevarán un proceso transparente y sin tabúes con el cliente. Comunicamos abiertamente sobre avances, desafíos y soluciones.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor4Title">4. Eficiencia</strong>
+                <p id="valor4Desc">Los recursos del sistema serán fáciles de utilizar y modificar, además de contar con garantía. Optimizamos procesos y recursos para entregar el máximo valor.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor5Title">5. Durabilidad</strong>
+                <p id="valor5Desc">Los programas y trabajos serán bastante resistentes con el paso del tiempo. Desarrollamos software pensando en el largo plazo.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor6Title">6. Seguridad</strong>
+                <p id="valor6Desc">Esta se ofrecerá de manera permanente durante todo el proceso con los usuarios. La protección de datos es una prioridad en cada línea de código.</p>
+            </div>
+
+            <div class="value-item">
+                <strong id="valor7Title">7. Perseverancia</strong>
+                <p id="valor7Desc">Mantendremos constancia hasta escalar los objetivos de la empresa. No nos rendimos ante los desafíos y buscamos continuamente mejorar.</p>
+            </div>
+        </section>
+
+        <section id="historia" class="section">
+            <h1 id="historiaTitle">📖 Historia</h1>
+            <div class="historia-content">
+                <p id="historiaText">
+                    <strong>Sherval</strong> es una empresa creada por dos jóvenes apasionados por la programación: 
+                    <strong>Sherman Andrés León Trigos</strong> y <strong>Laura Valentina Hernández Gómez</strong>, 
+                    formados en <strong>Programación de Software en el SENA</strong>.
+                </p>
+                <p id="historiaText2">
+                    Nuestra empresa nació de un proyecto final académico que se transformó en una empresa consolidada 
+                    con visión de futuro. Compartimos una misión común: crear soluciones tecnológicas innovadoras 
+                    que marquen la diferencia en la vida de las personas y el crecimiento de las empresas.
+                </p>
+            </div>
+        </section>
+
+        <section id="colores" class="section">
+            <h1 id="coloresTitle">🎨 Colores Corporativos</h1>
+            <p id="coloresText">Los colores utilizados en nuestra marca transmiten significados importantes que reflejan nuestra identidad y valores:</p>
+            
+            <div class="color-container">
+                <div class="color-item">
+                    <div class="color-info">
+                        <h3 id="color1Name">🔷 Azul Oscuro</h3>
+                        <p class="color-meaning">
+                            <strong id="color1Label">Significado:</strong> <span id="color1Meaning">Serenidad, confianza, inteligencia y profesionalismo</span>
+                        </p>
+                        <p class="color-usage">
+                            <strong id="color1AppLabel">Aplicación:</strong> <span id="color1App">Color principal en logo y materiales corporativos</span>
+                        </p>
+                    </div>
+                    <div class="color-display" style="background: linear-gradient(135deg, #154360 0%, #2874a6 100%);"></div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-info">
+                        <h3 id="color2Name">⚪ Plateado</h3>
+                        <p class="color-meaning">
+                            <strong id="color2Label">Significado:</strong> <span id="color2Meaning">Pureza, innovación, modernidad y humildad</span>
+                        </p>
+                        <p class="color-usage">
+                            <strong id="color2AppLabel">Aplicación:</strong> <span id="color2App">Acentos y detalles visuales tecnológicos</span>
+                        </p>
+                    </div>
+                    <div class="color-display" style="background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);"></div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-info">
+                        <h3 id="color3Name">⬛ Negro</h3>
+                        <p class="color-meaning">
+                            <strong id="color3Label">Significado:</strong> <span id="color3Meaning">Elegancia innata, solidez y sofisticación</span>
+                        </p>
+                        <p class="color-usage">
+                            <strong id="color3AppLabel">Aplicación:</strong> <span id="color3App">Tipografía y elementos estructurales</span>
+                        </p>
+                    </div>
+                    <div class="color-display" style="background: linear-gradient(135deg, #000000 0%, #333333 100%);"></div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-info">
+                        <h3 id="color4Name">🟧 Dorado/Naranja</h3>
+                        <p class="color-meaning">
+                            <strong id="color4Label">Significado:</strong> <span id="color4Meaning">Creatividad, energía, innovación y dinamismo</span>
+                        </p>
+                        <p class="color-usage">
+                            <strong id="color4AppLabel">Aplicación:</strong> <span id="color4App">Elementos de énfasis y llamadas a la acción</span>
+                        </p>
+                    </div>
+                    <div class="color-display" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section">
+            <h1 id="serviciosTitle">💻 Servicios Ofrecidos</h1>
+            <p id="serviciosText">En Sherval ofrecemos una amplia gama de servicios de desarrollo de software diseñados para satisfacer las necesidades específicas de cada cliente:</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3 id="service1Title">🖥️ Desarrollo de Software a Medida</h3>
+                    <p id="service1Desc">Creamos soluciones personalizadas que se adaptan perfectamente a los requisitos únicos de su negocio.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service2Title">📱 Aplicaciones Móviles</h3>
+                    <p id="service2Desc">Diseñamos y desarrollamos apps nativas y multiplataforma para iOS y Android con interfaces intuitivas.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service3Title">🌐 Desarrollo de Páginas Web</h3>
+                    <p id="service3Desc">Creamos sitios web responsivos y optimizados, desde landing pages hasta plataformas complejas.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service4Title">📚 Asesorías y Capacitación</h3>
+                    <p id="service4Desc">Brindamos asesorías para personas y empresas que quieran profesionalizarse en el área tecnológica.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service5Title">🔗 Integración de Sistemas</h3>
+                    <p id="service5Desc">Conectamos diferentes aplicaciones y sistemas para mejorar la eficiencia operativa de su empresa.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service6Title">🧪 Pruebas de Software (QA)</h3>
+                    <p id="service6Desc">Realizamos pruebas exhaustivas de calidad para garantizar el funcionamiento perfecto de su software.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service7Title">🔧 Mantenimiento y Soporte</h3>
+                    <p id="service7Desc">Ofrecemos servicios continuos de mantenimiento, actualizaciones y soporte técnico especializado.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 id="service8Title">☁️ Soluciones en la Nube</h3>
+                    <p id="service8Desc">Implementamos y gestionamos soluciones cloud para mayor escalabilidad y seguridad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="propuesta" class="section">
+            <h1 id="propuestaTitle">💡 Propuesta</h1>
+            <p id="propuestaText">Somos una empresa dedicada a crear soluciones tecnológicas innovadoras que impulsen el crecimiento y la eficiencia de nuestros clientes.</p>
+        </section>
+
+        <section id="canales" class="section">
+            <h1 id="canalesTitle">💰 Canales de pago</h1>
+            <p id="canalesText">Recibimos pagos a través de Nequi, Daviplata y PayPal.</p>
+            <img src="img/nequi.jpg" width="80" height="80">
+            <img src="img/daviplata.png" width="80" height="80">
+            <img src="img/paypal.avif" width="80" height="80">
+        </section>
+
+        <section id="contacto" class="section">
+            <h1 id="contactoTitle">📞 Contáctanos</h1>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-icon">👨‍💻</div>
+                    <h3>Sherman Andrés León Trigos</h3>
+                    <p><strong id="contactEmail1">📧 Correo:</strong> sherman.leon09@gmail.com</p>
+                    <p><strong id="contactPhone1">📱 Teléfono:</strong> 305 2973135</p>
+                    <p><strong id="contactRole1">💼 Cargo:</strong> <span id="contactRoleText1">Co-fundador & Desarrollador</span></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">👩‍💻</div>
+                    <h3>Laura Valentina Hernández Gómez</h3>
+                    <p><strong id="contactEmail2">📧 Correo:</strong> gomezvalentina22laura@gmail.com</p>
+                    <p><strong id="contactPhone2">📱 Teléfono:</strong> 3182825746</p>
+                    <p><strong id="contactRole2">💼 Cargo:</strong> <span id="contactRoleText2">Co-fundadora & Desarrolladora</span></p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <p><strong id="contactAddress">📍 Dirección:</strong> Cra. 10 #31 Sur-29, Bogotá, Colombia</p>
+                <p><strong id="contactFormation">🏢 Formación:</strong> <span id="contactFormationText">SENA - Técnicos en Programación de Software</span></p>
+                <p><strong id="contactSchedule">⏰ Horario de atención:</strong> <span id="contactScheduleText">Lunes a Viernes 8:00 AM - 6:00 PM</span></p>
+            </div>
+        </section>
+
+        <section id="audio" class="section">
+            <h1 id="audioTitle">🔊 Audio Explicativo</h1>
+            <p id="audioText">Escucha la explicación del proyecto:</p>
+            <p>primera parte del audio / valentina</p>
+            <audio controls>
+                <source src="Explicacion 1ra parte.ogg" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>segunda parte del audio / Sherman</p>
+            <audio controls>
+                <source src="explicacion 2da parte.ogg" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </section>
+    </main>
+
+    <!-- PIE -->
+    <footer class="footer">
+        <img src="img/logo sena.png" width="80" height="80" alt="Logo SENA" style="margin-right: 20px;">
+        <img src="img/logo colegio enrique.jpg" width="80" height="80" alt="Logo Colegio Enrique">
+        <p id="footer1">&copy; Laura Valentina Hernández Gómez</p>
+        <p id="footer2">&copy; Sherman Andrés León Trigos</p>
+        <p id="footer3"><strong>Programadores Profesionales de Software</strong></p>
+    </footer>
+</body>
+</html>

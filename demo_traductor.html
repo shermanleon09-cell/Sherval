@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Traductor Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 10px;
+        }
+
+        select {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        select:hover {
+            border-color: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .content-box {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .content-box h2 {
+            color: #374151;
+            margin-bottom: 15px;
+        }
+
+        .content-box p {
+            color: #6b7280;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        .offline-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-indicator">
+        🔒 Modo Offline
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="mainTitle">🌍 Traductor Offline</h1>
+            <span class="status-badge">✅ Sin conexión a Internet</span>
+        </div>
+
+        <div class="language-selector">
+            <label for="langSelect" id="labelLang" style="font-weight: bold; color: #374151;">Selecciona el idioma:</label>
+            <select id="langSelect">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="zh">🇨🇳 中文</option>
+            </select>
+        </div>
+
+        <div class="content-box">
+            <h2 id="welcomeTitle">👋 Bienvenido</h2>
+            <p id="welcomeText">
+                Este es un demostrador del sistema de traducción offline. Todo el contenido se traduce 
+                instantáneamente sin necesidad de conexión a internet.
+            </p>
+        </div>
+
+        <div class="content-box">
+            <h2 id="howWorksTitle">⚙️ ¿Cómo funciona?</h2>
+            <p id="howWorksText">
+                Utilizamos un diccionario completo incorporado en JavaScript. Todas las traducciones están 
+                almacenadas localmente en tu navegador, lo que permite un cambio instantáneo de idioma.
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3 id="feature1Title">Instantáneo</h3>
+                <p id="feature1Text">Cambios en tiempo real</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3 id="feature2Title">Privado</h3>
+                <p id="feature2Text">Sin envío de datos</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💰</div>
+                <h3 id="feature3Title">Gratuito</h3>
+                <p id="feature3Text">Sin costos ocultos</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">♾️</div>
+                <h3 id="feature4Title">Ilimitado</h3>
+                <p id="feature4Text">Sin restricciones</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p id="footerText">Desarrollado por Sherval © 2024</p>
+        </div>
+    </div>
+
+    <script>
+        // Mini diccionario de demostración
+        const demoTranslations = {
+            es: {
+                mainTitle: "🌍 Traductor Offline",
+                labelLang: "Selecciona el idioma:",
+                welcomeTitle: "👋 Bienvenido",
+                welcomeText: "Este es un demostrador del sistema de traducción offline. Todo el contenido se traduce instantáneamente sin necesidad de conexión a internet.",
+                howWorksTitle: "⚙️ ¿Cómo funciona?",
+                howWorksText: "Utilizamos un diccionario completo incorporado en JavaScript. Todas las traducciones están almacenadas localmente en tu navegador, lo que permite un cambio instantáneo de idioma.",
+                feature1Title: "Instantáneo",
+                feature1Text: "Cambios en tiempo real",
+                feature2Title: "Privado",
+                feature2Text: "Sin envío de datos",
+                feature3Title: "Gratuito",
+                feature3Text: "Sin costos ocultos",
+                feature4Title: "Ilimitado",
+                feature4Text: "Sin restricciones",
+                footerText: "Desarrollado por Sherval © 2024"
+            },
+            en: {
+                mainTitle: "🌍 Offline Translator",
+                labelLang: "Select language:",
+                welcomeTitle: "👋 Welcome",
+                welcomeText: "This is a demonstration of the offline translation system. All content is translated instantly without the need for an internet connection.",
+                howWorksTitle: "⚙️ How does it work?",
+                howWorksText: "We use a complete dictionary built into JavaScript. All translations are stored locally in your browser, allowing instant language switching.",
+                feature1Title: "Instant",
+                feature1Text: "Real-time changes",
+                feature2Title: "Private",
+                feature2Text: "No data sent",
+                feature3Title: "Free",
+                feature3Text: "No hidden costs",
+                feature4Title: "Unlimited",
+                feature4Text: "No restrictions",
+                footerText: "Developed by Sherval © 2024"
+            },
+            fr: {
+                mainTitle: "🌍 Traducteur Hors Ligne",
+                labelLang: "Sélectionnez la langue:",
+                welcomeTitle: "👋 Bienvenue",
+                welcomeText: "Ceci est une démonstration du système de traduction hors ligne. Tout le contenu est traduit instantanément sans nécessiter de connexion Internet.",
+                howWorksTitle: "⚙️ Comment ça marche?",
+                howWorksText: "Nous utilisons un dictionnaire complet intégré dans JavaScript. Toutes les traductions sont stockées localement dans votre navigateur, permettant un changement de langue instantané.",
+                feature1Title: "Instantané",
+                feature1Text: "Changements en temps réel",
+                feature2Title: "Privé",
+                feature2Text: "Aucune donnée envoyée",
+                feature3Title: "Gratuit",
+                feature3Text: "Sans coûts cachés",
+                feature4Title: "Illimité",
+                feature4Text: "Sans restrictions",
+                footerText: "Développé par Sherval © 2024"
+            },
+            de: {
+                mainTitle: "🌍 Offline-Übersetzer",
+                labelLang: "Sprache wählen:",
+                welcomeTitle: "👋 Willkommen",
+                welcomeText: "Dies ist eine Demonstration des Offline-Übersetzungssystems. Alle Inhalte werden sofort übersetzt, ohne dass eine Internetverbindung erforderlich ist.",
+                howWorksTitle: "⚙️ Wie funktioniert es?",
+                howWorksText: "Wir verwenden ein vollständiges Wörterbuch, das in JavaScript integriert ist. Alle Übersetzungen werden lokal in Ihrem Browser gespeichert, was einen sofortigen Sprachwechsel ermöglicht.",
+                feature1Title: "Sofort",
+                feature1Text: "Echtzeit-Änderungen",
+                feature2Title: "Privat",
+                feature2Text: "Keine Daten gesendet",
+                feature3Title: "Kostenlos",
+                feature3Text: "Keine versteckten Kosten",
+                feature4Title: "Unbegrenzt",
+                feature4Text: "Keine Einschränkungen",
+                footerText: "Entwickelt von Sherval © 2024"
+            },
+            it: {
+                mainTitle: "🌍 Traduttore Offline",
+                labelLang: "Seleziona la lingua:",
+                welcomeTitle: "👋 Benvenuto",
+                welcomeText: "Questa è una dimostrazione del sistema di traduzione offline. Tutto il contenuto viene tradotto istantaneamente senza necessità di connessione Internet.",
+                howWorksTitle: "⚙️ Come funziona?",
+                howWorksText: "Utilizziamo un dizionario completo incorporato in JavaScript. Tutte le traduzioni sono memorizzate localmente nel tuo browser, consentendo un cambio di lingua istantaneo.",
+                feature1Title: "Istantaneo",
+                feature1Text: "Modifiche in tempo reale",
+                feature2Title: "Privato",
+                feature2Text: "Nessun dato inviato",
+                feature3Title: "Gratuito",
+                feature3Text: "Senza costi nascosti",
+                feature4Title: "Illimitato",
+                feature4Text: "Senza restrizioni",
+                footerText: "Sviluppato da Sherval © 2024"
+            },
+            pt: {
+                mainTitle: "🌍 Tradutor Offline",
+                labelLang: "Selecione o idioma:",
+                welcomeTitle: "👋 Bem-vindo",
+                welcomeText: "Esta é uma demonstração do sistema de tradução offline. Todo o conteúdo é traduzido instantaneamente sem necessidade de conexão à internet.",
+                howWorksTitle: "⚙️ Como funciona?",
+                howWorksText: "Usamos um dicionário completo incorporado em JavaScript. Todas as traduções estão armazenadas localmente no seu navegador, permitindo mudança instantânea de idioma.",
+                feature1Title: "Instantâneo",
+                feature1Text: "Mudanças em tempo real",
+                feature2Title: "Privado",
+                feature2Text: "Sem envio de dados",
+                feature3Title: "Gratuito",
+                feature3Text: "Sem custos ocultos",
+                feature4Title: "Ilimitado",
+                feature4Text: "Sem restrições",
+                footerText: "Desenvolvido por Sherval © 2024"
+            },
+            ja: {
+                mainTitle: "🌍 オフライン翻訳者",
+                labelLang: "言語を選択：",
+                welcomeTitle: "👋 ようこそ",
+                welcomeText: "これはオフライン翻訳システムのデモンストレーションです。すべてのコンテンツはインターネット接続を必要とせずに即座に翻訳されます。",
+                howWorksTitle: "⚙️ どのように機能しますか？",
+                howWorksText: "JavaScriptに組み込まれた完全な辞書を使用しています。すべての翻訳はブラウザにローカルに保存されており、即座の言語切り替えが可能です。",
+                feature1Title: "即座",
+                feature1Text: "リアルタイムの変更",
+                feature2Title: "プライベート",
+                feature2Text: "データ送信なし",
+                feature3Title: "無料",
+                feature3Text: "隠れたコストなし",
+                feature4Title: "無制限",
+                feature4Text: "制限なし",
+                footerText: "Shervalによって開発 © 2024"
+            },
+            zh: {
+                mainTitle: "🌍 离线翻译器",
+                labelLang: "选择语言：",
+                welcomeTitle: "👋 欢迎",
+                welcomeText: "这是离线翻译系统的演示。所有内容都可以在不需要互联网连接的情况下即时翻译。",
+                howWorksTitle: "⚙️ 如何工作？",
+                howWorksText: "我们使用内置在JavaScript中的完整词典。所有翻译都存储在您的浏览器本地，允许即时语言切换。",
+                feature1Title: "即时",
+                feature1Text: "实时变化",
+                feature2Title: "私密",
+                feature2Text: "不发送数据",
+                feature3Title: "免费",
+                feature3Text: "无隐藏费用",
+                feature4Title: "无限制",
+                feature4Text: "没有限制",
+                footerText: "由Sherval开发 © 2024"
+            }
+        };
+
+        function applyDemoLanguage(lang) {
+            const t = demoTranslations[lang];
+            if (!t) return;
+            
+            for (const key in t) {
+                const el = document.getElementById(key);
+                if (el) el.innerHTML = t[key];
+            }
+            
+            localStorage.setItem('demoLanguage', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selector = document.getElementById('langSelect');
+            const savedLang = localStorage.getItem('demoLanguage') || 'es';
+            
+            selector.value = savedLang;
+            applyDemoLanguage(savedLang);
+            
+            selector.addEventListener('change', () => {
+                applyDemoLanguage(selector.value);
+            });
+        });
+    </script>
+</body>
+</html>
